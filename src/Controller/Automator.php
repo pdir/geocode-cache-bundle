@@ -24,7 +24,7 @@ namespace Pdir\GeoCodeCacheBundle\Controller;
  * @author  Mathias Arzberger <develop@pdir.de>
  * @package geocode_cache
  */
-class Automator extends \Controller
+class Automator
 {
     /**
      * Name of the current table
