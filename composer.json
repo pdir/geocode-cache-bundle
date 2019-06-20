@@ -12,7 +12,8 @@
     "require": {
         "php": "^5.6 || ^7.0",
         "contao/core-bundle": "4.4.*",
-        "symfony/framework-bundle": "^3.3"
+        "symfony/framework-bundle": "^3.3",
+        "opencage/geocode": "^2.1"
     },
     "conflict": {
         "contao/core": "*",

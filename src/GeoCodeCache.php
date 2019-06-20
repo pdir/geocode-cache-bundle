@@ -52,7 +52,9 @@ class GeoCodeCache extends \delahaye\GeoCode
             }
 
             // load from google / default code by Christian de la Haye
-            $arrCoords = self::getInstance()->geoCode($strAddress, null, $strLang, $strCountry);
+            //$arrCoords = self::getInstance()->geoCode($strAddress, null, $strLang, $strCountry);
+
+
 
             if($arrCoords)
             {
@@ -94,6 +96,13 @@ class GeoCodeCache extends \delahaye\GeoCode
 
         return;
     }
+
+    /**
+     * Get geo coordinates by address from opencagedata api
+     * @param string
+     * @return array or string
+     */
+
 
     /**
      * Write address and lat/lng to cache table
