@@ -24,7 +24,7 @@ namespace Pdir\GeoCodeCacheBundle;
  * @author  Mathias Arzberger <develop@pdir.de>
  * @package    geocode_cache
  */
-class GeoCodeCache extends \delahaye\GeoCode
+class GeoCodeCache
 {
     /**
      * Name of the current table
@@ -39,38 +39,31 @@ class GeoCodeCache extends \delahaye\GeoCode
      * @param string
      * @return string
      */
-    public static function getCoordinates($strAddress, $strCountry = 'de', $strLang = 'de')
+    public static function getCoordinates($strAddress)
     {
         if ($strAddress)
         {
             // get coordinates from cache table
-            $arrCoords = self::getCoordinatesFromCache( implode(",", array($strAddress, $strCountry, $strLang)) );
+            $arrCoords = self::getCoordinatesFromCache( implode(",", array($strAddress)) );
 
             if($arrCoords)
             {
-                return $arrCoords['lat'] . ',' . $arrCoords['lng'];
+                return $arrCoords;
             }
 
-            // load from google / default code by Christian de la Haye
-            //$arrCoords = self::getInstance()->geoCode($strAddress, null, $strLang, $strCountry);
+            // load from opencagedata
+            $geocoder = new \OpenCage\Geocoder\Geocoder('ACCESS_TOKEN');
+            $result = $geocoder->geocode($strAddress);
 
-
-
-            if($arrCoords)
-            {
-                $strValue = $arrCoords['lat'] . ',' . $arrCoords['lng'];
+            if ($result && $result['total_results'] > 0) {
+                $arrCoords = $result['results'][0]['geometry'];
             }
-            elseif(function_exists("curl_init"))
-            {
-                $strValue = self::geoCodeCurl($strAddress, $strCountry);
-            }
-            // end load from google / default code by Christian de la Haye
 
             // write coordinates to cache table
-            if($strValue != '')
-                self::setCoordinatesToCache( implode(",", array($strAddress, $strCountry, $strLang)), $strValue );
+            if($arrCoords)
+                self::setCoordinatesToCache( implode(",", array($strAddress)), $arrCoords );
         }
-        return $strValue==',' ? '' : $strValue;
+        return $arrCoords;
     }
 
     /**
@@ -80,29 +73,21 @@ class GeoCodeCache extends \delahaye\GeoCode
      */
     protected function getCoordinatesFromCache($strAddress)
     {
-        $arrCor = array();
+        $arrCor = [];
         $objCor = \Database::getInstance()->prepare("SELECT * FROM " . static::$strTable . " WHERE addr LIKE ? LIMIT 1")->execute($strAddress);
 
         if($objCor->numRows > 0) {
             while ($objCor->next()) {
-                $arrCor = array
-                (
+                $arrCor = [
                     'lat' => $objCor->lat,
                     'lng' => $objCor->lng
-                );
+                ];
             }
             return $arrCor;
         }
 
-        return;
+        return null;
     }
-
-    /**
-     * Get geo coordinates by address from opencagedata api
-     * @param string
-     * @return array or string
-     */
-
 
     /**
      * Write address and lat/lng to cache table
@@ -111,10 +96,9 @@ class GeoCodeCache extends \delahaye\GeoCode
      * @param string
      * @return nothing
      */
-    protected function setCoordinatesToCache($strAddress, $strLatLng)
+    protected function setCoordinatesToCache($strAddress, $arrCoords)
     {
-        $arrCor = explode(',', $strLatLng);
-        $set = array('tstamp' => time(), 'addr' => $strAddress, 'lat' => $arrCor[0], 'lng' => $arrCor[1]);
+        $set = ['tstamp' => time(), 'addr' => $strAddress, 'lat' => $arrCoords['lat'], 'lng' => $arrCoords['lng']];
 
         \Database::getInstance()->prepare("INSERT INTO " . static::$strTable . " %s")->set($set)->execute();
         return;

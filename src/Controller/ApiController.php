@@ -2,6 +2,7 @@
 
 namespace Pdir\GeoCodeCacheBundle\Controller;
 
+use Pdir\GeoCodeCacheBundle\GeoCodeCache;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,7 +31,7 @@ class ApiController extends Controller
             'address' => $address
         ];*/
 
-        $this->getCoordinates($address);
+        $arrCoords = GeoCodeCache::getCoordinates($address);
 
         return new Response(json_encode($arrCoords), 200);
     }

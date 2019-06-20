@@ -20,7 +20,9 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface
     {
         return [
             BundleConfig::create(PdirGeoCodeCacheBundle::class)
-                ->setLoadAfter([ContaoCoreBundle::class]),
+                ->setLoadAfter([
+                    ContaoCoreBundle::class
+                ]),
         ];
     }
 
