@@ -1,0 +1,14 @@
+<?xml version="1.0" ?><xliff version="1.1" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/cs02/xliff-core-1.2-strict.xsd">
+  <file datatype="plaintext" original="system/modules/isotope/languages/en/tl_maintenance.xlf" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="tl_maintenance_jobs.tl_geocode_cache.0">
+        <source>Purge coordinates cache</source>
+        <target>Koordinatencache leeren</target>
+      </trans-unit>
+      <trans-unit id="tl_maintenance_jobs.tl_geocode_cache.1">
+        <source>Truncates the &lt;em&gt;tl_geocode_cache&lt;/em&gt; table which caches the coordinates for [dlh_geocode] extension.</source>
+        <target>Leert die Tabelle &lt;em&gt;tl_geocode_cache&lt;/em&gt;, welches die Koordinaten für [dlh_geocode] zwischenspeichert.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
