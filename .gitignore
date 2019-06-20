@@ -1,4 +1,5 @@
 # Composer
+.idea
 /composer.lock
 /vendor/
 
