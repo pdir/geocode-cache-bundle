@@ -1,0 +1,3 @@
+pdir_api:
+    resource: "@PdirGeoCodeCacheBundle/Controller"
+    type: annotation
