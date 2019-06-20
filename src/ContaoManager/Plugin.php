@@ -1,6 +1,6 @@
 <?php
 
-namespace Pdir\GeoCodeCache\ContaoManager;
+namespace Pdir\GeoCodeCacheBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
@@ -9,7 +9,7 @@ use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Contao\ManagerPlugin\Routing\RoutingPluginInterface;
 use Symfony\Component\Config\Loader\LoaderResolverInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Pdir\GeoCodeCache\PdirGeoCodeCacheBundle;
+use Pdir\GeoCodeCacheBundle\PdirGeoCodeCacheBundle;
 
 class Plugin implements BundlePluginInterface, RoutingPluginInterface
 {

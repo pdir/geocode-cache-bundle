@@ -1,6 +1,6 @@
 <?php
 
-namespace Pdir\GeoCodeCacheBundle;
+namespace Pdir\GeoCodeCacheBundleBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

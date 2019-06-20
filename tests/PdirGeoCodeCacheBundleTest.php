@@ -1,8 +1,8 @@
 <?php
 
-namespace Pdir\GeoCodeCache\Tests;
+namespace Pdir\GeoCodeCacheBundle\Tests;
 
-use Pdir\GeoCodeCache\GeoCodeCacheBundle;
+use Pdir\GeoCodeCacheBundle\GeoCodeCacheBundle;
 use PHPUnit\Framework\TestCase;
 
 class PdirGeoCodeCacheBundleTest extends TestCase
@@ -11,6 +11,6 @@ class PdirGeoCodeCacheBundleTest extends TestCase
     {
         $bundle = new GeoCodeCacheBundle();
 
-        $this->assertInstanceOf('Pdir\GeoCodeCache\GeoCodeCacheBundle', $bundle);
+        $this->assertInstanceOf('Pdir\GeoCodeCacheBundle\GeoCodeCacheBundle', $bundle);
     }
 }
