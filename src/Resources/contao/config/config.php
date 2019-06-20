@@ -15,7 +15,7 @@
  * Allow to delete the cache in maintenance module
  */
 $GLOBALS['TL_PURGE']['tables']['tl_geocode_cache'] = array(
-    'callback'  => array('Pdir\GeoCodeCache\Automator', 'purge'),
+    'callback'  => array('Pdir\GeoCodeCache\Controller\Automator', 'purge'),
     'affected'  => array('tl_geocode_cache'),
 );
 
@@ -29,4 +29,4 @@ $GLOBALS['TL_PURGE']['tables']['tl_geocode_cache'] = array(
 /**
  * Cron Jobs
  */
-$GLOBALS['TL_CRON']['daily'][] = array('Pdir\GeoCodeCache\Automator', 'deleteOldCoordinates');
+$GLOBALS['TL_CRON']['daily'][] = array('Pdir\GeoCodeCache\Controller\Automator', 'deleteOldCoordinates');

@@ -1,14 +1,6 @@
 <?php
 
-/*
- * This file is part of [package name].
- *
- * (c) John Doe
- *
- * @license LGPL-3.0-or-later
- */
-
-namespace Contao\SkeletonBundle\ContaoManager;
+namespace Pdir\GeoCodeCache\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
