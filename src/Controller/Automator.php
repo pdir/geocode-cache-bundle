@@ -39,7 +39,7 @@ class Automator extends \Controller
     {
         \Database::getInstance()->query("TRUNCATE " . static::$strTable);
 
-        \System::log('Purged coordinates cache', __METHOD__, TL_INFO);
+        //\Contao\System::log('Purged coordinates cache', __METHOD__, TL_INFO);
     }
 
     /**
@@ -50,6 +50,6 @@ class Automator extends \Controller
         \Database::getInstance()->prepare("DELETE FROM " . static::$strTable . " WHERE tstamp<?")
             ->execute(time() - 68400 * 1);
 
-        \System::log('Deleted coordinates older than 60 days', __METHOD__, TL_CRON);
+        //\Contao\System::log('Deleted coordinates older than 60 days', __METHOD__, TL_CRON);
     }
 }
