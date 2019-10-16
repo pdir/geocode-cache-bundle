@@ -25,12 +25,6 @@ class ApiController extends Controller
     public function geocodeAction(Request $request, $address)
     {
         // get coordinates from cache table or api
-        /*$arrCoords = [
-            'lat' => 123,
-            'lng' => 456,
-            'address' => $address
-        ];*/
-
         $arrCoords = GeoCodeCache::getCoordinates($address);
 
         return new Response(json_encode($arrCoords), 200);

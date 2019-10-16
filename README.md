@@ -1,48 +1,51 @@
-# Contao 4 skeleton bundle
+GeoCode Bundle extension for Contao 4
+============================================================
 
-Contao is an Open Source PHP Content Management System for people who want a
-professional website that is easy to maintain. Visit the [project website][1]
-for more information.
+[![Latest Stable Version](https://poser.pugx.org/pdir/geocode-cache-bundle/v/stable)](https://packagist.org/packages/pdir/geocode-cache-bundle)
+[![Total Downloads](https://poser.pugx.org/pdir/geocode-cache-bundle/downloads)](https://packagist.org/packages/pdir/geocode-cache-bundle)
+[![License](https://poser.pugx.org/pdir/geocode-cache-bundle/license)](https://packagist.org/packages/pdir/geocode-cache-bundle)
 
-You can use the skeleton bundle as basis for your own Contao bundle.
+About
+-----
 
-## Install
+The extension adds a new route */api/geocode/* to Contao and determines the latitude and longitude of an address.
+As a service, the OpenCage geocoder is used. 2000 requests per day are free - see https://opencagedata.com/pricing
+All requests are stored in a database table.
 
-Download the skeleton bundle:
+**Deutsch**
 
-```bash
-wget https://github.com/contao/skeleton-bundle/archive/master.zip
-unzip master.zip
-mv skeleton-bundle-master [package name]
-cd [package name]
-```
+Die Erweiterung fügt eine neue Route api/geocode zu Contao hinzu und ermittelt die Latitude und Longitude Angaben einer Adresse. 
+Als Dienst wird der OpenCage Geocoder verwendet. 2000 Anfrage pro Tag sind frei - see https://opencagedata.com/pricing
+Alle Anfragen werden in einer Datenbanktabelle gespeichert.
 
-## Customize
+Example
+-------
+Calling https://example.org/api/geocode/Ringstraße+9+28309+Bremen returns the following Json:
+    
+    { "lat": "53.0529439", "lng": "8.887199"}
 
-First adjust the following files:
+Set API key
+-------------------
+app/config/parameters.yml
 
- * `.php_cs.php`
- * `composer.json`
- * `phpunit.xml.dist`
- * `README.md`
+    parameters:    
+        pdir_gcb_opengage_api_key: INSERT_YOUR_OPENCAGE_API_KEY_HERE
 
-Then rename the following files and/or the references to `SkeletonBundle` in
-the following files:
+System requirements
+-------------------
 
- * `src/ContaoManager/Plugin.php`
- * `src/DependencyInjection/ContaoSkeletonExtension.php`
- * `src/ContaoSkeletonBundle.php`
- * `tests/ContaoSkeletonBundleTest.php`
+* [Contao 4.0](https://github.com/contao/contao-bundle) or higher
 
-Finally add your custom classes and resources.
+Installation & Configuration
+----------------------------
+* [Dokumentation](https://docs.pdir.de/#/geocode-cache-bundle/index)
 
-## Release
 
-Run the PHP-CS-Fixer and the unit test before you release your bundle:
+Dependencies
+------------
 
-```bash
-vendor/bin/php-cs-fixer fix -v
-vendor/bin/phpunit
-```
+- [opencage/geocode](https://github.com/opencagedata/php-opencage-geocode)
 
-[1]: https://contao.org
+License
+-------
+GNU Lesser General Public License v3.0

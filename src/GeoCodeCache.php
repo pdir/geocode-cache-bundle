@@ -16,6 +16,9 @@
  */
 namespace Pdir\GeoCodeCacheBundle;
 
+use Contao\System;
+use Symfony\Component\Routing\Exception\ResourceNotFoundException;
+
 /**
  * Class GeoCodeCache
  *
@@ -51,8 +54,13 @@ class GeoCodeCache
                 return $arrCoords;
             }
 
-            // load from opencagedata
-            $geocoder = new \OpenCage\Geocoder\Geocoder('ACCESS_TOKEN');
+            $apiKey = System::getContainer()->getParameter('pdir_gcb_opengage_api_key');
+
+            if(!$apiKey){
+                throw new ResourceNotFoundException(sprintf('The Opengage API key is not set.'));
+            }
+
+            $geocoder = new \OpenCage\Geocoder\Geocoder($apiKey);
             $result = $geocoder->geocode($strAddress);
 
             if ($result && $result['total_results'] > 0) {

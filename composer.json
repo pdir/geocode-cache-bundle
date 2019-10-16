@@ -1,11 +1,11 @@
 {
-    "name": "pdir/gecode-cache-bundle",
+    "name": "pdir/geocode-cache-bundle",
     "type": "contao-bundle",
     "description": "GeoCode Cache bundle for Contao 4",
     "license": "LGPL-3.0-or-later",
     "authors": [
         {
-            "name": "Mathias Arzberger",
+            "name": "pdir GmbH",
             "homepage": "https://pdir.de"
         }
     ],
