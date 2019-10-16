@@ -9,7 +9,7 @@ About
 -----
 
 The extension adds a new route */api/geocode/* to Contao and determines the latitude and longitude of an address.
-As a service, the OpenCage geocoder is used. 2000 requests per day are free - see https://opencagedata.com/pricing
+As a service, the OpenCage geocoder is used. 2000 requests per day are free - see https://opencagedata.com/pricing  
 All requests are stored in a database table.
 
 **Deutsch**
