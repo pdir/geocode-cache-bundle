@@ -15,7 +15,7 @@ All requests are stored in a database table.
 **Deutsch**
 
 Die Erweiterung fügt eine neue Route api/geocode zu Contao hinzu und ermittelt die Latitude und Longitude Angaben einer Adresse. 
-Als Dienst wird der OpenCage Geocoder verwendet. 2000 Anfrage pro Tag sind frei - see https://opencagedata.com/pricing
+Als Dienst wird der OpenCage Geocoder verwendet. 2000 Anfrage pro Tag sind frei - see https://opencagedata.com/pricing.  
 Alle Anfragen werden in einer Datenbanktabelle gespeichert.
 
 Example
