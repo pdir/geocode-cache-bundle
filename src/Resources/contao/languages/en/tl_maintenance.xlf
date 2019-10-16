@@ -5,7 +5,7 @@
         <source>Purge coordinates cache</source>
       </trans-unit>
       <trans-unit id="tl_maintenance_jobs.tl_geocode_cache.1">
-        <source>Truncates the &lt;em&gt;tl_geocode_cache&lt;/em&gt; table which caches the coordinates for [dlh_geocode] extension.</source>
+        <source>Truncates the &lt;em&gt;tl_geocode_cache&lt;/em&gt; table which caches the coordinates.</source>
       </trans-unit>
     </body>
   </file>

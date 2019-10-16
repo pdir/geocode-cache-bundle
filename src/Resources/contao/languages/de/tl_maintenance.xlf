@@ -6,8 +6,8 @@
         <target>Koordinatencache leeren</target>
       </trans-unit>
       <trans-unit id="tl_maintenance_jobs.tl_geocode_cache.1">
-        <source>Truncates the &lt;em&gt;tl_geocode_cache&lt;/em&gt; table which caches the coordinates for [dlh_geocode] extension.</source>
-        <target>Leert die Tabelle &lt;em&gt;tl_geocode_cache&lt;/em&gt;, welches die Koordinaten für [dlh_geocode] zwischenspeichert.</target>
+        <source>Truncates the &lt;em&gt;tl_geocode_cache&lt;/em&gt; table which caches the coordinates.</source>
+        <target>Leert die Tabelle &lt;em&gt;tl_geocode_cache&lt;/em&gt;, welches die Koordinaten zwischenspeichert.</target>
       </trans-unit>
     </body>
   </file>
