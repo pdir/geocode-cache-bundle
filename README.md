@@ -24,12 +24,13 @@ Calling https://example.org/api/geocode/Ringstraße+9+28309+Bremen returns the f
     
     { "lat": "53.0529439", "lng": "8.887199"}
 
-Set API key
--------------------
+Set API key and other parameters
+-----------
 app/config/parameters.yml
 
     parameters:    
         pdir_gcb_opengage_api_key: INSERT_YOUR_OPENCAGE_API_KEY_HERE
+        pdir_gcb_cache_time: 1 day (default is 1 hour if noting is set)
 
 System requirements
 -------------------
@@ -49,3 +50,14 @@ Dependencies
 License
 -------
 GNU Lesser General Public License v3.0
+
+
+Tests & Coding Standard Checks
+------------------------------
+
+Run the PHP-CS-Fixer and the unit test before you release your bundle:
+
+```bash
+vendor/bin/php-cs-fixer fix -v
+vendor/bin/phpunit
+```

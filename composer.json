@@ -5,8 +5,15 @@
     "license": "LGPL-3.0-or-later",
     "authors": [
         {
-            "name": "pdir GmbH",
-            "homepage": "https://pdir.de"
+            "name": "Christian de la Haye",
+            "email": "service@delahaye.de",
+            "homepage": "http://www.delahaye.de/",
+            "role": "Developer"
+        },
+        {
+          "name": "pdir GmbH",
+          "homepage": "https://pdir.de",
+          "role": "Developer"
         }
     ],
     "require": {
@@ -44,5 +51,8 @@
     "support": {
         "issues": "https://github.com/pdir/geocode-cache-bundle/issues",
         "source": "https://github.com/pdir/geocode-cache-bundle"
+    },
+    "suggest": {
+        "pdir/maklermodul-bundle": "GeoCode cache can be used for map integrations."
     }
 }
