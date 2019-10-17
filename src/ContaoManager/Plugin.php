@@ -1,5 +1,20 @@
 <?php
 
+/*
+ * GeoCode cache bundle for Contao Open Source CMS
+ *
+ * Copyright (c) 2019 pdir / digital agentur // pdir GmbH
+ *
+ * @package    geocode-cache-bundle
+ * @link       https://pdir.de
+ * @license    LGPL-3.0+
+ * @author     Mathias Arzberger <develop@pdir.de>
+ * @author     Philipp Seibt <develop@pdir.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Pdir\GeoCodeCacheBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
@@ -7,9 +22,9 @@ use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Contao\ManagerPlugin\Routing\RoutingPluginInterface;
+use Pdir\GeoCodeCacheBundle\PdirGeoCodeCacheBundle;
 use Symfony\Component\Config\Loader\LoaderResolverInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Pdir\GeoCodeCacheBundle\PdirGeoCodeCacheBundle;
 
 class Plugin implements BundlePluginInterface, RoutingPluginInterface
 {
@@ -21,7 +36,7 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface
         return [
             BundleConfig::create(PdirGeoCodeCacheBundle::class)
                 ->setLoadAfter([
-                    ContaoCoreBundle::class
+                    ContaoCoreBundle::class,
                 ]),
         ];
     }
